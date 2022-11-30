@@ -10,7 +10,7 @@
       crossorigin="anonymous">
   </head>
   <body>
-    @using ToDOList.Models;
+    @using ToDoList.Models;
 
     <h1>To Do List</h1>
 
@@ -21,10 +21,14 @@
     <ul>
       @foreach (Item item in Model)
       {
-        <li>@item.Description</li>
+        <li><a href='/items/@item.Id'>@item.Description</a></li>
       }
 
     </ul>
-    <a href="/item/new">Add a new item.</a>
+    <a href="/items/new">Add a new item.</a>
+
+    <form action="/items/delete" method="post">
+      <button type="submit" name="button">Clear All Items</button>
+    </form>
   </body>
 </html>
