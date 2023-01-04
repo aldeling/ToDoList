@@ -10,10 +10,15 @@
       crossorigin="anonymous">
   </head>
   <body>
-    <form action="/items" method="post">
-      <label for="description">Add a new item</label>
-      <input id="description" name="description" type="text">
-      <button type="submit">Submit</button>
-    </form>
+    @Model ToDoList.Models.Item
+
+    <h4>Add a new task</h4>
+    @using (Html.BeginForm())
+    {
+      @Html.LabelFor(model => model.Description)
+      @Html.TextBoxFor(model => model.Description)
+      <input type="submit" value="Add new task" />
+    }
+    <p>@Html.ActionLink("Show all items", "Index")</p>
   </body>
 </html>
